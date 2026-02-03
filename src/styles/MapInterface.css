@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Controls Panel */
+.map-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 280px;
+  min-width: 220px;
+}
+
+.controls-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.control-group {
+  margin-bottom: 10px;
+}
+
+.control-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.control-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #4285F4;
+}
+
+.routes-list {
+  margin-top: 12px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.routes-list h4 {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.route-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: background-color 0.15s;
+}
+
+.route-item:hover,
+.route-item.selected {
+  background-color: #f5f5f5;
+}
+
+.route-item.selected {
+  background-color: #e8f0fe;
+}
+
+.route-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.route-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.route-info strong {
+  font-size: 13px;
+  color: #333;
+}
+
+.route-info span {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Legend */
+.map-legend {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.map-legend h4 {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #555;
+  padding: 2px 0;
+  text-transform: capitalize;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Details Panel */
+.location-details-panel {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+  width: 360px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.location-details-panel h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: #222;
+  padding-right: 30px;
+}
+
+.attraction-type-badge {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #666;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: #f0f0f0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: background 0.15s;
+}
+
+.close-btn:hover {
+  background: #e0e0e0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stars {
+  font-size: 18px;
+}
+
+.rating-number {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.opening-hours {
+  margin-bottom: 16px;
+}
+
+.opening-hours h3,
+.reviews h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.status {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.status.open {
+  color: #4caf50;
+}
+
+.status.closed {
+  color: #f44336;
+}
+
+.opening-hours ul {
+  list-style: none;
+  padding: 0;
+}
+
+.opening-hours li {
+  font-size: 13px;
+  color: #666;
+  padding: 3px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.review {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 0;
+}
+
+.review:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.review-header strong {
+  font-size: 13px;
+  color: #333;
+}
+
+.review p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.no-reviews {
+  color: #999;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.photos img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Custom marker override */
+.custom-marker {
+  background: none !important;
+  border: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-controls {
+    top: 10px;
+    right: 10px;
+    max-width: 200px;
+    padding: 12px;
+  }
+
+  .location-details-panel {
+    right: 0;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 50vh;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .map-legend {
+    bottom: 10px;
+    left: 10px;
+  }
+}
